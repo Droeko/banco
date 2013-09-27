@@ -4,6 +4,8 @@
  */
 package com.fpmislata.banco;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author alumno
@@ -45,7 +47,77 @@ public class ComFpmislataBanco {
         Banco.anyadirSucursalBancaria(Sucursal2);
         //--------------------------------------------------------
         
+        //Cuenta1-------------------------------------------------
+        CuentaBancaria Cuenta1=new CuentaBancaria();
+        Cuenta1.setIdCuentaBancaria(1);
+        Cuenta1.setCif("12345678J");
+        Cuenta1.setNumeroCuenta("A12345678");
+        Cuenta1.setDc(1);
+        Cuenta1.setSaldo(3000);
         
+        Cuenta1.setSucursalBancaria(Sucursal1);
+        Sucursal1.anyadirCuentaBancaria(Cuenta1);
+        //--------------------------------------------------------
+        
+        //Cuenta2-------------------------------------------------
+        CuentaBancaria Cuenta2=new CuentaBancaria();
+        Cuenta2.setIdCuentaBancaria(1);
+        Cuenta2.setCif("16345578G");
+        Cuenta2.setNumeroCuenta("B12345078");
+        Cuenta2.setDc(2);
+        Cuenta2.setSaldo(6500);
+        
+        Cuenta2.setSucursalBancaria(Sucursal1);
+        Sucursal1.anyadirCuentaBancaria(Cuenta2);
+        //--------------------------------------------------------
+        
+        //Cuenta2-------------------------------------------------
+        CuentaBancaria Cuenta3=new CuentaBancaria();
+        Cuenta3.setIdCuentaBancaria(3);
+        Cuenta3.setCif("B4RC3N45");
+        Cuenta3.setNumeroCuenta("00SU1Z400");
+        Cuenta3.setDc(3);
+        Cuenta3.setSaldo(5000000);
+        
+        Cuenta3.setSucursalBancaria(Sucursal2);
+        Sucursal2.anyadirCuentaBancaria(Cuenta3);
+        //--------------------------------------------------------
+        
+        //Movimiento1---------------------------------------------
+        MovimientoBancario Movimiento1=new MovimientoBancario();
+        Movimiento1.setIdMovimientoBancario(1);
+        Movimiento1.setFecha("12-12-2012");
+        Movimiento1.setImporte(300);
+        Movimiento1.setTipoMovimientoBancario(TipoMovimientoBancario.DEBE);
+        Movimiento1.setSaldoTotal(600);
+        Movimiento1.setConcepto("Sacar Dinero");
+        
+        Movimiento1.setCuentaBancaria(Cuenta1);
+        Cuenta1.anyadirMovimientoBancario(Movimiento1);
+        //--------------------------------------------------------
+        
+        //Movimiento1---------------------------------------------
+        MovimientoBancario Movimiento2=new MovimientoBancario();
+        Movimiento2.setIdMovimientoBancario(1);
+        Movimiento2.setFecha("12-12-2012");
+        Movimiento2.setImporte(400);
+        Movimiento2.setTipoMovimientoBancario(TipoMovimientoBancario.HABER);
+        Movimiento2.setSaldoTotal(600);
+        Movimiento2.setConcepto("Sacar Dinero");
+        
+        Movimiento2.setCuentaBancaria(Cuenta1);
+        Cuenta1.anyadirMovimientoBancario(Movimiento2);
+        //--------------------------------------------------------
+        
+        
+        
+        
+        
+        /*
+         * codigo ent.  codigo suc. dc  numrenta
+         * 300€debe
+         * 400€haber
+        */
         
     }
 }
